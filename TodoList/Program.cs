@@ -17,10 +17,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(cfg =>
-{
-    cfg.AddProfile<AutoMapperConfig>();
-});
+builder.Services.AddAutoMapper(
+    cfg => { cfg.AddProfile<AutoMapperConfig>(); },
+    typeof(AutoMapperConfig).Assembly
+);
+
+
+
 builder.Services.AddTransient(typeof(TodoListBusiness));
 
 builder.Services.AddDbContext<TodoDbContext>(options =>
