@@ -1,15 +1,14 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using TodoList.Model;
 
 namespace TodoList.Database
 {
     public class TodoDbContext : DbContext
     {
-        public TodoDbContext() : base("Default")
+        public TodoDbContext(DbContextOptions<TodoDbContext> options) : base(options)
         {
-
         }
 
-        public DbSet<Todo> Todo { get; set; }
+        public DbSet<Todo> Todos { get; set; }
     }
 }

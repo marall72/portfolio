@@ -1,16 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TodoList.Enum;
 
 namespace TodoList.Model
 {
     [Table("Todo")]
-    public class Todo
+    public class Todo : ModelBase
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
-        public int Id { get; set; }
         [Required]
         public string Title { get; set; }
         public string Description { get; set; } = "";
+        public TodoStatus Status { get; set; }
     }
 }

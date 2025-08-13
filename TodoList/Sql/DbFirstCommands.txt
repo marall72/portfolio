@@ -1,3 +1,6 @@
-﻿Enable-Migrations
-Add-Migration InitialCreate
-Update-Database
+﻿
+Add-Migration InitialCreate -Context TodoDbContext -OutputDir Migrations/TodoDb
+Add-Migration InitialCreate -Context LogDbContext -OutputDir Migrations/LogDb
+
+Update-Database -Context TodoDbContext
+Update-Database -Context LogDbContext
