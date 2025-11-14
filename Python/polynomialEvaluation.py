@@ -1,0 +1,6 @@
+inputNumber = input().split(" ")
+polynomial = input()
+value = eval(polynomial.replace("x", inputNumber[0]))
+print(value)
+print(inputNumber[1])
+print(value == int(inputNumber[1]))
